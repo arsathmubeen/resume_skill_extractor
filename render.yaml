@@ -2,6 +2,8 @@ services:
   - type: web
     name: resume-skill-extractor
     env: python
-    buildCommand: "pip install -r requirements.txt && python -m spacy download en_core_web_sm"
+    buildCommand: |
+      pip install -r requirements.txt
+      python -m spacy download en_core_web_sm
     startCommand: "streamlit run app.py --server.port=$PORT --server.address=0.0.0.0"
     plan: free
